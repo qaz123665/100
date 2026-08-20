@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>100室內設計 | 廣告合作流程指南</title>
     <style>
-        /* 基礎設定與色彩變數 */
+        /* 基礎設定與色彩變數 - 綠色全部改為質感灰 */
         :root {
-            --brand-green: #29A66C; 
-            --text-dark-grey: #333333; /* 標題深灰 */
-            --text-light-grey: #888888; /* 副標題淺灰 */
-            --bg-body: #FFFFFF; /* 全白背景 */
+            --theme-color: #666666; /* 核心主題色：深灰色 */
+            --theme-hover: #4D4D4D; /* 按鈕滑過時的更深灰色 */
+            --text-dark-grey: #333333;
+            --text-light-grey: #888888;
+            --bg-body: #FFFFFF;
             --footer-bg: #5D5D5D; 
             --footer-text: #B3B3B3;
         }
@@ -30,11 +31,8 @@
             border-bottom: 1px solid #EBEBEB;
             background-color: #FFFFFF;
         }
-        .top-navbar img {
-            height: 35px;
-        }
 
-        /* 內容標題區塊 (對齊您的截圖) */
+        /* 內容標題區塊 */
         .content-header {
             text-align: center;
             padding: 60px 20px 40px 20px;
@@ -42,19 +40,20 @@
         .content-header h1 {
             margin: 0;
             font-size: 32px;
-            font-weight: 600; /* 微調字重，看起來更俐落 */
-            color: var(--text-dark-grey); /* 套入深灰色 */
+            font-weight: 600; 
+            color: var(--text-dark-grey); 
             letter-spacing: 1px;
         }
         .content-header p {
             margin-top: 15px;
             font-size: 16px;
-            color: var(--text-light-grey); /* 套入淺灰色 */
+            color: var(--text-light-grey); 
         }
+        /* 標題下方的橫線 - 改灰色 */
         .header-line {
             width: 40px;
             height: 2px;
-            background-color: var(--brand-green);
+            background-color: var(--theme-color);
             margin: 20px auto 0 auto;
         }
 
@@ -72,13 +71,13 @@
             gap: 25px; 
         }
 
-        /* 步驟卡片 */
+        /* 步驟卡片 - 左側邊框改灰色 */
         .step-card {
             background: #FFFFFF;
             border-radius: 8px;
             padding: 30px;
             border: 1px solid #EBEBEB;
-            border-left: 5px solid var(--brand-green);
+            border-left: 5px solid var(--theme-color);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             display: flex;
             flex-direction: column; 
@@ -100,9 +99,9 @@
             border-bottom: 1px dashed #EBEBEB;
         }
         
-        /* 步驟數字 */
+        /* 步驟數字 - 背景改灰色 */
         .step-number {
-            background-color: var(--brand-green);
+            background-color: var(--theme-color);
             color: white;
             border-radius: 4px; 
             width: 28px;
@@ -131,16 +130,17 @@
             font-weight: bold;
         }
 
-        /* 提示區塊 */
+        /* 提示區塊 - 改為淺灰底、灰邊框 */
         .alert-box {
-            background-color: #F4FBF7; 
-            border: 1px solid #C3E6D3;
+            background-color: #F8F9FA; 
+            border: 1px solid #E4E6E8;
             padding: 15px;
             border-radius: 6px;
             margin-top: 15px;
         }
+        /* 提示區塊標題 - 改灰色 */
         .alert-box strong {
-            color: var(--brand-green);
+            color: var(--theme-color);
             display: block;
             margin-bottom: 8px;
             font-size: 15px;
@@ -153,10 +153,10 @@
             grid-column: 1 / -1; 
         }
         
-        /* 按鈕設計 */
+        /* 按鈕設計 - 改灰色 */
         .btn {
             display: inline-block;
-            background-color: var(--brand-green);
+            background-color: var(--theme-color);
             color: white;
             text-decoration: none;
             padding: 15px 40px;
@@ -166,7 +166,7 @@
             transition: background 0.3s ease;
         }
         .btn:hover {
-            background-color: #218c5a;
+            background-color: var(--theme-hover);
         }
 
         /* 模擬頁尾 */
@@ -189,13 +189,12 @@
 </head>
 <body>
 
-    <!-- 獨立的頂部導覽列 放 Logo -->
-  <!-- 獨立的頂部導覽列 放 Logo -->
+    <!-- 獨立的頂部導覽列 放 Logo (連結到你上傳的 圖片1.png) -->
     <div class="top-navbar">
         <img src="./圖片1.png" alt="100室內設計" style="height: 40px; width: auto;">
     </div>
 
-    <!-- 內容標題區塊 (完全對齊您的截圖) -->
+    <!-- 內容標題區塊 -->
     <div class="content-header">
         <h1>廣告合作與執行流程</h1>
         <p>為設計公司打造的高效對接指南</p>
