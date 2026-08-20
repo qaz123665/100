@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>100室內設計 | 店鋪方案進單流程</title>
+    <title>100室內設計 | 廣告合作流程指南</title>
     <style>
-        /* 基礎設定與色彩變數 - 綠色全部改為質感灰 */
+        /* 基礎設定與色彩變數 - 質感灰主題 */
         :root {
-            --theme-color: #666666; /* 核心主題色：深灰色 */
-            --theme-hover: #4D4D4D; /* 按鈕滑過時的更深灰色 */
+            --theme-color: #666666; 
+            --theme-light: #D0D4D9; /* 箭頭的淺灰 */
+            --theme-hover: #4D4D4D; 
             --text-dark-grey: #333333;
             --text-light-grey: #888888;
             --bg-body: #FFFFFF;
@@ -25,17 +26,18 @@
             line-height: 1.6;
         }
         
-        /* 頂部導覽列 (放 Logo 的地方) */
+        /* 頂部導覽列 */
         .top-navbar {
             padding: 15px 30px;
             border-bottom: 1px solid #EBEBEB;
             background-color: #FFFFFF;
+            text-align: left;
         }
 
         /* 內容標題區塊 */
         .content-header {
             text-align: center;
-            padding: 60px 20px 40px 20px;
+            padding: 50px 20px 30px 20px;
         }
         .content-header h1 {
             margin: 0;
@@ -49,7 +51,6 @@
             font-size: 16px;
             color: var(--text-light-grey); 
         }
-        /* 標題下方的橫線 - 改灰色 */
         .header-line {
             width: 40px;
             height: 2px;
@@ -57,41 +58,60 @@
             margin: 20px auto 0 auto;
         }
 
-        /* 內容容器 */
+        /* 內容容器 - 拉寬以容納 4 個水平卡片 */
         .container {
-            max-width: 1000px;
+            max-width: 1400px;
             margin: 20px auto 60px auto;
             padding: 0 20px;
         }
 
-        /* 網格佈局：一排兩個 */
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px; 
+        /* 流程包裝區塊 (Flexbox 水平排列) */
+        .process-wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch; /* 讓所有卡片等高 */
+            justify-content: center;
         }
 
-        /* 步驟卡片 - 左側邊框改灰色 */
+        /* 步驟卡片 - 水平版微調 */
         .step-card {
             background: #FFFFFF;
             border-radius: 8px;
-            padding: 30px;
+            padding: 25px 20px;
             border: 1px solid #EBEBEB;
-            border-left: 5px solid var(--theme-color);
+            border-top: 5px solid var(--theme-color); /* 改為上方粗邊框，更適合水平排版 */
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            flex: 1; /* 均分寬度 */
             display: flex;
-            flex-direction: column; 
+            flex-direction: column;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
         .step-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+
+        /* 水平箭頭 (向右) */
+        .step-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 15px;
+        }
+        .step-arrow::after {
+            content: '';
+            width: 18px;
+            height: 18px;
+            border-top: 4px solid var(--theme-light);
+            border-right: 4px solid var(--theme-light);
+            transform: rotate(45deg);
         }
 
         /* 步驟標題 */
         .step-title {
             display: flex;
             align-items: center;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
             color: var(--text-dark-grey);
             margin-bottom: 15px;
@@ -99,19 +119,20 @@
             border-bottom: 1px dashed #EBEBEB;
         }
         
-        /* 步驟數字 - 背景改灰色 */
+        /* 步驟數字 */
         .step-number {
             background-color: var(--theme-color);
             color: white;
             border-radius: 4px; 
-            width: 28px;
-            height: 28px;
+            width: 26px;
+            height: 26px;
             display: inline-flex;
             justify-content: center;
             align-items: center;
-            font-size: 15px;
-            margin-right: 15px;
+            font-size: 14px;
+            margin-right: 12px;
             font-weight: bold;
+            flex-shrink: 0;
         }
 
         /* 內容列表 */
@@ -122,7 +143,7 @@
         }
         .step-content li {
             margin-bottom: 12px;
-            font-size: 15px;
+            font-size: 14px; /* 字體微調小一點以適應窄欄 */
             color: #555555;
         }
         .highlight {
@@ -130,7 +151,7 @@
             font-weight: bold;
         }
 
-        /* 提示區塊 - 改為淺灰底、灰邊框 */
+        /* 提示區塊 */
         .alert-box {
             background-color: #F8F9FA; 
             border: 1px solid #E4E6E8;
@@ -138,28 +159,26 @@
             border-radius: 6px;
             margin-top: 15px;
         }
-        /* 提示區塊標題 - 改灰色 */
         .alert-box strong {
             color: var(--theme-color);
             display: block;
             margin-bottom: 8px;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         /* 行動呼籲區塊 */
         .cta-section {
             text-align: center;
-            margin: 50px 0;
-            grid-column: 1 / -1; 
+            margin: 60px 0 20px 0;
+            width: 100%;
         }
         
-        /* 按鈕設計 - 改灰色 */
         .btn {
             display: inline-block;
             background-color: var(--theme-color);
             color: white;
             text-decoration: none;
-            padding: 15px 40px;
+            padding: 16px 45px;
             font-size: 18px;
             font-weight: normal;
             border-radius: 30px;
@@ -179,33 +198,51 @@
             margin-top: 50px;
         }
 
-        /* 響應式設計 */
-        @media (max-width: 768px) {
-            .steps-grid {
-                grid-template-columns: 1fr;
+        /* 響應式設計：小螢幕(如平板、手機)自動變回垂直，箭頭改向下 */
+        @media (max-width: 992px) {
+            .process-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+            .step-card {
+                width: 100%;
+                border-top: 1px solid #EBEBEB;
+                border-left: 5px solid var(--theme-color); /* 垂直版改回左邊框 */
+                margin-bottom: 0;
+            }
+            .step-arrow {
+                padding: 20px 0;
+            }
+            .step-arrow::after {
+                border-top: none;
+                border-right: 4px solid var(--theme-light);
+                border-bottom: 4px solid var(--theme-light);
+                transform: rotate(45deg); /* 改為向下箭頭 */
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- 獨立的頂部導覽列 放 Logo (連結到你上傳的 圖片1.png) -->
+    <!-- 頂部導覽列 放 Logo -->
     <div class="top-navbar">
         <img src="./圖片1.png" alt="100室內設計" style="height: 40px; width: auto;">
     </div>
 
-    <!-- 內容標題區塊 -->
     <div class="content-header">
-        <h1>店鋪方案進單流程</h1>
+        <h1>廣告合作與執行流程</h1>
+        <p>為設計公司打造的高效對接指南</p>
         <div class="header-line"></div>
     </div>
 
     <div class="container">
         
-        <div class="steps-grid">
+        <!-- 水平流程容器 -->
+        <div class="process-wrapper">
+            
             <!-- Step 1 -->
             <div class="step-card">
-                <div class="step-title"><span class="step-number">1</span> 簽約與排期確認</div>
+                <div class="step-title"><span class="step-number">1</span> 簽約與排期</div>
                 <div class="step-content">
                     <ul>
                         <li><strong>【業務】</strong>與設計公司完成合約簽署。</li>
@@ -214,46 +251,55 @@
                 </div>
             </div>
 
+            <!-- 向右箭頭 -->
+            <div class="step-arrow"></div>
+
             <!-- Step 2 -->
             <div class="step-card">
-                <div class="step-title"><span class="step-number">2</span> 建立 LINE 群組</div>
+                <div class="step-title"><span class="step-number">2</span> 建立群組</div>
                 <div class="step-content">
                     <ul>
-                        <li>確認完成排期表後，由<strong>【業務】</strong>創建專案專屬 LINE 群組。</li>
-                        <li>請將 LINE 帳號：<strong>100客服Rachel</strong>、<strong>啦啦</strong> 加入群組中。</li>
-                        <li><em>備註：收到簽約後，站台會安排對接的編輯，該名編輯將由「啦啦」協助加入群組（每個設計公司對接的編輯皆不相同）。</em></li>
+                        <li>排期後由<strong>【業務】</strong>創建專屬 LINE 群組。</li>
+                        <li>請將：<strong>100客服Rachel</strong>、<strong>啦啦</strong> 加入。</li>
+                        <li><em>備註：站台安排對接的編輯將由「啦啦」協助加入（對接編輯皆不相同）。</em></li>
                     </ul>
                 </div>
             </div>
 
+            <!-- 向右箭頭 -->
+            <div class="step-arrow"></div>
+
             <!-- Step 3 -->
             <div class="step-card">
-                <div class="step-title"><span class="step-number">3</span> 廣告執行與素材準備</div>
+                <div class="step-title"><span class="step-number">3</span> 廣告與素材</div>
                 <div class="step-content">
                     <ul>
-                        <li><strong>系統導入：</strong> 站台將廣告版位排期表導入 100 後台系統，導入後<strong>【業務】</strong>可隨時登入後台查看確認。</li>
-                        <li><strong>內容製作：</strong> 編輯將協助製作廣告內容，製作完成後皆會在 LINE 群組內同步資訊。</li>
+                        <li>站台將排期導入後台系統，<strong>【業務】</strong>可隨時登入查看。</li>
+                        <li>編輯將協助製作廣告，完成後皆會在群組同步。</li>
                     </ul>
                     <div class="alert-box">
-                        <strong>⚠️ 業務素材提供提醒</strong>
-                        部分廣告版位 banner 需提前提供素材與文案，站台才能安排上架。請留意以下版位：<br>
-                        首頁焦點大圖 | 開機廣告 | APP首頁頂部橫幅 | 搜尋頁輪播廣告
+                        <strong>⚠️ 素材提供提醒</strong>
+                        部分 banner 需提前提供，包含：首頁焦點大圖 | 開機廣告 | APP橫幅 | 搜尋頁輪播
                     </div>
                 </div>
             </div>
 
+            <!-- 向右箭頭 -->
+            <div class="step-arrow"></div>
+
             <!-- Step 4 -->
             <div class="step-card">
-                <div class="step-title"><span class="step-number">4</span> 上架確認與進度追蹤</div>
+                <div class="step-title"><span class="step-number">4</span> 上架與追蹤</div>
                 <div class="step-content">
                     <ul>
-                        <li>廣告上架後，客戶即可根據排期表查看上線內容。</li>
-                        <li><strong>【業務】</strong>需持續關注「需要製作素材」的版位安排，同時把控內容製作進度。</li>
-                        <li>每月編輯會定期提醒進度，其中<strong>「開箱文撰寫」</strong>與<strong>「短影音拍攝」</strong>需重點把控進度以利專案順利推行。</li>
+                        <li>廣告上架後，客戶即可根據排期表查看。</li>
+                        <li><strong>【業務】</strong>需持續關注「需製作素材」的版位安排。</li>
+                        <li>每月定期提醒進度（開箱文與短影音需重點把控）。</li>
                     </ul>
                 </div>
             </div>
-        </div> 
+
+        </div> <!-- end process-wrapper -->
 
         <div class="cta-section">
             <a href="https://docs.google.com/spreadsheets/d/1VPzDdaRqB0Rnj8cmfl5A8nXJVRd_6pzuGTZ-ZzcrsFs/edit?gid=297807671#gid=297807671" target="_blank" class="btn">查看完整排期表</a>
